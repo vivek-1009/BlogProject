@@ -11,7 +11,7 @@ initialState,
 reducers:{
 login:(state,action)=>{
 state.status=true;// mtlb login ho gya h
-state.userData=action.payload.userData;
+state.userData=action.payload;
 },
 logout:(state)=>{
 state.status=false;

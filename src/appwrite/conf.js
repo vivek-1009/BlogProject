@@ -116,11 +116,11 @@ export class Service {
     }
 
     getFilePreview(fileID) {
-        return this.storage.getFilePreview(
-            config.appwriteBucketId,
-            fileID
-        );
-    }
+    return this.storage.getFileView(
+        config.appwriteBucketId,
+        fileID
+    );
+}
 }
 
 const service = new Service();

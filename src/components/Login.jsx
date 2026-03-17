@@ -17,15 +17,17 @@ const login = async (data) => {
     try {
         const session = await authService.login(data.email, data.password);
 
-        let userData = null; // ✅ declare here
-
         if (session) {
-            userData = await authService.getCurrentUser();
-        }
+            const userData = await authService.getCurrentUser();
 
-        if (userData) {
-            dispatch(authLogin(userData));
-            navigate("/");
+            if (userData) {
+                dispatch(authLogin(userData));
+
+                // ✅ IMPORTANT FIX (small delay)
+                setTimeout(() => {
+                    navigate("/");
+                }, 100);
+            }
         }
 
     } catch (error) {
